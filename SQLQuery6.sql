@@ -1,4 +1,4 @@
-CREATE DATABASE Rent_A_Car
+﻿CREATE DATABASE Rent_A_Car
 
 USE Rent_A_Car
 
@@ -9,6 +9,7 @@ CREATE TABLE Class (
 	SummerDailyPrice AS WinterDailyPrice * 1.5
 )
 
+SELECT * FROM Class
 CREATE TABLE Vehicle (
 	Id int IDENTITY(1,1) PRIMARY KEY,
 	Model nvarchar(128) NOT NULL,
@@ -30,7 +31,7 @@ CREATE TABLE Employee (
 	Id int IDENTITY(1,1) PRIMARY KEY,
 	FirstName nvarchar(128) NOT NULL,
 	LastName nvarchar(128) NOT NULL,
-	Gender nvarchar(8) NOT NULL CHECK(Gender = 'Mu�karac' OR Gender = '�ena'),
+	Gender nvarchar(8) NOT NULL CHECK(Gender = 'Muškarac' OR Gender = 'Žena'),
 	DateOfBirth date NOT NULL,
 	Adress nvarchar(256) NOT NULL,
 	PhoneNumber nvarchar(12) NOT NULL
@@ -60,15 +61,15 @@ VALUES
 ('A - City Car', 450.00),
 ('B - Niska klasa', 500.00),
 ('C - Srednja klasa', 580.00),
-('D - Vi�a srednja klasa', 700.00 ),
-('E - Vi�a klasa', 890.00),
+('D - Viša srednja klasa', 700.00 ),
+('E - Viša klasa', 890.00),
 ('F - Luksuzna klasa', 1200.00),
 ('M - Minivan', 650.00)
 
 INSERT INTO Vehicle(Brand, Model, Mileage, Type, Color, ClassId)
 VALUES
 ('Citroen', 'C1', '100 000 km', 'auto', 'svijetlo-plava', 1),
-('Fiat', 'Panda', '150 000 km', 'auto', 'naran?asta', 1),
+('Fiat', 'Panda', '150 000 km', 'auto', 'narančasta', 1),
 ('Hyundai' ,'i10', '200 000km' , 'auto', 'crvena', 1),
 ('Hyundai' ,'i10', '100 000km' , 'auto', 'crvena', 1),
 ('Golf','4', '200 000km' , 'auto', 'crvena', 2),
@@ -120,35 +121,35 @@ VALUES
 
 INSERT INTO Employee(FirstName, LastName, Gender, Adress, DateOfBirth, PhoneNumber)
 VALUES
-('Mate', 'Mati?', 'Mu�karac', 'Adresa A', '1986-04-09', '091-222-3333'),
-('Ana', 'Ani?', '�ena', 'Adresa B','1992-10-11', '092-333-4444'),
-('�eljana', '�elji?', '�ena', 'Adresa C', '1991-09-09', '099-111-3344'),
-('Ante', 'Anti?', 'Mu�karac', 'Adresa D', '1970-01-21', '095-219-1111'),
-('Matija', 'Matiji?', 'Mu�karac', 'Adresa E', '1996-03-10', '095-666-1234')
+('Mate', 'Matić', 'Muškarac', 'Adresa A', '1986-04-09', '091-222-3333'),
+('Ana', 'Anić', 'Žena', 'Adresa B','1992-10-11', '092-333-4444'),
+('Željana', 'Željić', 'Žena', 'Adresa C', '1991-09-09', '099-111-3344'),
+('Ante', 'Antić', 'Muškarac', 'Adresa D', '1970-01-21', '095-219-1111'),
+('Matija', 'Matijić', 'Muškarac', 'Adresa E', '1996-03-10', '095-666-1234')
 
 INSERT INTO Rent(RentDate, EndDate, BuyerOIB, BuyerFirstName, BuyerLastName, BuyerDateOfBirth, DrivingLicenseNumber,CreditCardNumber, VehicleId, EmployeeId)
 VALUES
-('2020-11-21 12:00', '2020-11-28 12:00', '12345678999', 'Marko', 'Marki?', '1978-01-01', '12345678', '1111222233334444', 4, 2),
-('2020-04-12 14:00', '2020-04-20 14:00', '12345678911', 'Marija', 'Mariji?', '1990-12-03', '12345688', '1111222233335555', 2, 5),
-('2020-02-10 10:00', '2020-02-13 22:00', '12345678922', 'Mirna', 'Beovi?', '1995-10-09', '12345677', '1111222233336666', 12, 1),
-('2020-02-26 13:00', '2020-03-02 13:00', '12345678933', 'Anita', 'Ani?', '1989-11-22', '12345666', '1111222233337777', 16, 3),
-('2020-01-24 10:00', '2020-01-29 10:00', '12345678944', 'Snje�ana', 'Muci?', '1986-11-03', '12345655', '1111222233338888', 10, 2),
-('2020-02-27 18:00', '2020-03-05 18:00', '12345678955', 'Ranko', 'Ranki?', '1996-12-12', '12345644', '1111222233339999', 11, 3),
-('2020-09-12 09:00', '2020-09-17 09:00', '12345678966', 'Anamarija', '�ari?', '1992-12-08', '12345633', '1111222244441111', 12, 1),
-('2020-01-20 19:00', '2020-02-03 19:00', '12345678977', 'Jelena', 'Jonji?', '1991-09-03', '12345622', '1111222244442222', 1, 5),
-('2020-05-20 10:00', '2020-05-25 10:00', '12345678988', 'Rita', '�erkini?', '1970-03-03', '12345611', '1111222244443333', 20, 1),
-('2020-06-01 12:00', '2020-06-10 12:00', '12345678111', 'Ru�ica', 'Mari?', '1985-12-28', '12345111', '1111222244445555', 2, 4),
+('2020-11-21 12:00', '2020-11-28 12:00', '12345678999', 'Marko', 'Markić', '1978-01-01', '12345678', '1111222233334444', 4, 2),
+('2020-04-12 14:00', '2020-04-20 14:00', '12345678911', 'Marija', 'Marijić', '1990-12-03', '12345688', '1111222233335555', 2, 5),
+('2020-02-10 10:00', '2020-02-13 22:00', '12345678922', 'Mirna', 'Beović', '1995-10-09', '12345677', '1111222233336666', 12, 1),
+('2020-02-26 13:00', '2020-03-02 13:00', '12345678933', 'Anita', 'Anić', '1989-11-22', '12345666', '1111222233337777', 16, 3),
+('2020-01-24 10:00', '2020-01-29 10:00', '12345678944', 'Snježana', 'Mucić', '1986-11-03', '12345655', '1111222233338888', 10, 2),
+('2020-02-27 18:00', '2020-03-05 18:00', '12345678955', 'Ranko', 'Rankić', '1996-12-12', '12345644', '1111222233339999', 11, 3),
+('2020-09-12 09:00', '2020-09-17 09:00', '12345678966', 'Anamarija', 'Šarić', '1992-12-08', '12345633', '1111222244441111', 12, 1),
+('2020-01-20 19:00', '2020-02-03 19:00', '12345678977', 'Jelena', 'Jonjić', '1991-09-03', '12345622', '1111222244442222', 1, 5),
+('2020-05-20 10:00', '2020-05-25 10:00', '12345678988', 'Rita', 'Šerkinić', '1970-03-03', '12345611', '1111222244443333', 20, 1),
+('2020-06-01 12:00', '2020-06-10 12:00', '12345678111', 'Ružica', 'Marić', '1985-12-28', '12345111', '1111222244445555', 2, 4),
 ('2020-09-21 17:00', '2020-10-01 17:00', '12345678222', 'Lucia', 'Vukorepa', '1998-09-19', '12345222', '1111222244446666', 6, 1),
-('2020-08-12 08:30', '2020-08-19 08:30', '12345678333', 'Ivan', 'Ivi?', '1992-04-04', '12345333', '1111222244447777', 3, 4),
-('2020-08-12 15:00', '2020-08-19 15:00', '12345678444', 'Tomislav', 'Smol?i?', '1993-05-27', '12345444', '1111222244448888', 5, 4),
-('2020-02-24 14:00', '2020-02-29 14:00', '12345678555', 'Smiljana', 'Smili?', '1987-06-06', '12345555', '1111222244449999', 14, 4),
+('2020-08-12 08:30', '2020-08-19 08:30', '12345678333', 'Ivan', 'Ivić', '1992-04-04', '12345333', '1111222244447777', 3, 4),
+('2020-08-12 15:00', '2020-08-19 15:00', '12345678444', 'Tomislav', 'Smolčić', '1993-05-27', '12345444', '1111222244448888', 5, 4),
+('2020-02-24 14:00', '2020-02-29 14:00', '12345678555', 'Smiljana', 'Smilić', '1987-06-06', '12345555', '1111222244449999', 14, 4),
 ('2020-11-21 12:00', '2020-11-28 12:00', '12345678666', 'Borna', 'Milas', '1999-02-01', '12345243', '1111222255551111', 14, 5),
-('2020-03-01 10:20', '2020-03-20 22:20', '12345678777', 'Miroslav', 'Mekini?', '1979-01-24', '12345777', '1111222255552222', 7, 3),
-('2020-01-02 04:00', '2020-01-10 16:00', '12345678888', 'Kre�imir', 'Topi?', '1998-03-04', '12345888', '1111222255553333', 17, 4),
+('2020-03-01 10:20', '2020-03-20 22:20', '12345678777', 'Miroslav', 'Mekinić', '1979-01-24', '12345777', '1111222255552222', 7, 3),
+('2020-01-02 04:00', '2020-01-10 16:00', '12345678888', 'Krešimir', 'Topić', '1998-03-04', '12345888', '1111222255553333', 17, 4),
 ('2020-04-12 14:30', '2020-04-23 14:30', '12345671111', 'Nikolina', 'Kucelin', '1994-11-12', '12345999', '1111222255554444', 18, 3),
-('2020-08-15 13:00', '2020-08-24 13:00', '12345672222', 'Sanja', 'Rudi?', '1997-03-23', '12341111', '1111222255556666', 8, 1),
-('2020-12-12 10:00', '2020-12-30 10:00', '12345673333', 'Mirko', 'Katu�i?', '1993-09-21', '12342222', '1111222255557777', 8, 3),
-('2020-09-27 15:00', '2020-10-10 15:00', '12345674444', 'Marko', 'Marki?', '1990-04-17', '12343333', '1111222255558888', 13, 3)
+('2020-08-15 13:00', '2020-08-24 13:00', '12345672222', 'Sanja', 'Rudić', '1997-03-23', '12341111', '1111222255556666', 8, 1),
+('2020-12-12 10:00', '2020-12-30 10:00', '12345673333', 'Mirko', 'Katušić', '1993-09-21', '12342222', '1111222255557777', 8, 3),
+('2020-09-27 15:00', '2020-10-10 15:00', '12345674444', 'Marko', 'Markić', '1990-04-17', '12343333', '1111222255558888', 13, 3)
 
 
 SELECT 
@@ -200,15 +201,22 @@ ORDER BY
 SELECT 
 	r.Id,
 CASE
-	WHEN RentDate > DATEPART(month, '2020-10-01') AND EndDate > DATEPART(month, '2020-10-01') AND RentDate < DATEPART(month, '2020-03-01') AND EndDate < DATEPART(month,'2020-03-01')
+	WHEN (RentDate > '2020-10-01' AND EndDate > '2020-10-01') OR (RentDate < '2020-03-01' AND EndDate < '2020-03-01')
 	THEN CAST(DATEDIFF(day, RentDate, EndDate) AS float) * WinterDailyPrice
-	WHEN 
-	ELSE CAST(DATEDIFF(day, RentDate, EndDate) AS float) * SummerDailyPrice
+	WHEN (RentDate < '2020-10-01' AND EndDate < '2020-10-01') OR (RentDate > '2020-03-01' AND EndDate > '2020-03-01')
+	THEN CAST(DATEDIFF(day, RentDate, EndDate) AS float) * SummerDailyPrice
+	WHEN RentDate < '2020-10-01' AND EndDate > '2020-10-01'
+	THEN (CAST(DATEDIFF(day, RentDate, '2020-10-01') AS float) * SummerDailyPrice) + (CAST(DATEDIFF(day, '2020-10-01', EndDate) AS float) * WinterDailyPrice)
+	WHEN RentDate < '2020-03-01' AND EndDate > '2020-03-01'
+	THEN (CAST(DATEDIFF(day, RentDate, '2020-03-01') AS float) * WinterDailyPrice) + (CAST(DATEDIFF(day, '2020-03-01', EndDate) AS float) * SummerDailyPrice)
+	ELSE 0
 END AS TotalPrice
 FROM
 	Class c
 		JOIN Vehicle v ON c.Id = v.ClassId
 		JOIN Rent r ON v.Id = r.VehicleId
+WHERE
+	r.Id = 35
 
 --
 
@@ -237,6 +245,27 @@ GROUP BY
 	Brand
 
 --
+
+SELECT r.*,
+CASE
+	WHEN (RentDate > '2020-10-01' AND EndDate > '2020-10-01') OR (RentDate < '2020-03-01' AND EndDate < '2020-03-01')
+	THEN CAST(DATEDIFF(day, RentDate, EndDate) AS float) * WinterDailyPrice
+	WHEN (RentDate < '2020-10-01' AND EndDate < '2020-10-01') OR (RentDate > '2020-03-01' AND EndDate > '2020-03-01')
+	THEN CAST(DATEDIFF(day, RentDate, EndDate) AS float) * SummerDailyPrice
+	WHEN RentDate < '2020-10-01' AND EndDate > '2020-10-01'
+	THEN (CAST(DATEDIFF(day, RentDate, '2020-10-01') AS float) * SummerDailyPrice) + (CAST(DATEDIFF(day, '2020-10-01', EndDate) AS float) * WinterDailyPrice)
+	WHEN RentDate < '2020-03-01' AND EndDate > '2020-03-01'
+	THEN (CAST(DATEDIFF(day, RentDate, '2020-03-01') AS float) * WinterDailyPrice) + (CAST(DATEDIFF(day, '2020-03-01', EndDate) AS float) * SummerDailyPrice)
+	ELSE 0
+END AS TotalPrice
+INTO RentWithTotalPrice
+FROM
+	Class c
+		JOIN Vehicle v ON c.Id = v.ClassId
+		JOIN Rent r ON v.Id = r.VehicleId
+
+--
+
 
 SELECT
 	COUNT(Id) AS NumberOfRents, DATEPART(month, RentDate) AS Month
